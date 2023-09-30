@@ -19,4 +19,32 @@ public class ApplicationDbContext : IdentityDbContext<AppUser, AppRole, string>,
     {
     }
 
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        //builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
+        builder.Entity<AppUser>().HasOne(x => x.Interest)
+                                  .WithOne(x => x.User)
+                                  .HasForeignKey<Interest>(y => y.UserId)
+                                  .OnDelete(DeleteBehavior.Restrict)
+                              .IsRequired(false);
+        builder.Entity<AppUser>().HasOne(x => x.Interest)
+                                  .WithOne(x => x.User)
+                                  .HasForeignKey<Interest>(y => y.UserId)
+                                  .OnDelete(DeleteBehavior.Restrict)
+                              .IsRequired(false);
+        builder.Entity<AppUser>().HasOne(x => x.Education)
+              .WithOne(x => x.User)
+              .HasForeignKey<Education>(y => y.UserId)
+              .OnDelete(DeleteBehavior.Restrict)
+                              .IsRequired(false);
+
+        builder.Entity<Applicant>().HasOne(x => x.User)
+                   .WithMany(x => x.Applicants)
+                   .HasForeignKey(y => y.UserId)
+                   .OnDelete(DeleteBehavior.Restrict)
+                          .IsRequired(false);
+        base.OnModelCreating(builder);
+    }
+
 }

@@ -48,19 +48,25 @@ public class ApplicationDbContextInitializer
     }
     public async Task TrySeedAsync()
     {
-        string role = "admin";
-        await _roleManager.CreateAsync(new AppRole() { Name = role });
+        //string role = "admin";
+        //await _roleManager.CreateAsync(new AppRole() { Name = role });
 
-        var administrator = new AppUser
-        {
-            UserName = "codeAdmin",
-            Email = "mutalibshg@code.edu.az",
-            FullName = "proxiesAdmin",
-            NormalizedUserName = "proxiesAdmin",
-            NormalizedEmail = "MUTALIBSHG@CODE.EDU.AZ",
-            EmailConfirmed = false,
-            PhoneNumberConfirmed = false,
-            SecurityStamp = Guid.NewGuid().ToString("D")
-        };
+        //var administrator = new AppUser
+        //{
+        //    UserName = "codeAdmin",
+        //    Email = "mutalibshg@code.edu.az",
+        //    FullName = "proxiesAdmin",
+        //    NormalizedUserName = "proxiesAdmin",
+        //    NormalizedEmail = "MUTALIBSHG@CODE.EDU.AZ",
+        //    EmailConfirmed = false,
+        //    PhoneNumberConfirmed = false,
+        //    SecurityStamp = Guid.NewGuid().ToString("D")
+        //};
+
+        //await _userManager.CreateAsync(administrator, "PaSSword1!");
+        //await _userManager.AddToRoleAsync(administrator, "admin");
+
+        // await _context.SaveChangesAsync();
     }
 }
+

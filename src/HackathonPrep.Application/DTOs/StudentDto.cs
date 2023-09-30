@@ -1,12 +1,15 @@
-﻿namespace HackathonPrep.Application.DTOs;
+﻿using HackathonPrep.Application.Common.Interfaces;
+using HackathonPrep.Domain.Identity;
 
-public class StudentDto
+namespace HackathonPrep.Application.DTOs;
+
+public class StudentDto : IMapFrom<AppUser>
 {
     public string Id { get; set; }
     public string? FullName { get; set; }
     public DateTime? BirthDate { get; set; }
     public bool? Gender { get; set; }
-    public DateTime? AppointmentDate { get; set; }
+    // public DateTime? AppointmentDate { get; set; }
     public string? DeviceId { get; set; }
 
     public EducationDto? Education { get; set; }
