@@ -17,4 +17,8 @@
     <ProjectReference Include="..\HackathonPrep.Domain\HackathonPrep.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Handlers\Student\Command\" />
+  </ItemGroup>
+
 </Project>
